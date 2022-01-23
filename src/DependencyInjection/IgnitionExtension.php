@@ -14,8 +14,10 @@ class IgnitionExtension extends Extension
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.xml');
 
-        $configuration = $this->getConfiguration($configs, $container);
-        $config = $this->processConfiguration($configuration, $configs);
+        $config = $this->processConfiguration(
+            $this->getConfiguration($configs, $container),
+            $configs
+        );
 
         $definition = $container->getDefinition('spatie_ignition.ignition');
 
@@ -24,5 +26,6 @@ class IgnitionExtension extends Extension
         }
 
         $definition->addMethodCall('applicationPath', [$config['application_path']]);
+        $definition->addMethodCall('shouldDisplayException', [$config['should_display_exception']]);
     }
 }

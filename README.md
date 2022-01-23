@@ -26,13 +26,15 @@ Enable the bundle in `config/bundles.php`:
 
 ## Configuration
 
+Use `bin/console debug:config ignition` to see configuration options.
+
 `config/packages/ignition.yaml`:
 ```
 ignition:
     application_path: ''
     dark_mode: false
+    should_display_exceptions: '%kernel.debug%'
 ```
-
 
 ## Example
 

@@ -21,6 +21,10 @@ class Configuration implements ConfigurationInterface
                     ->defaultFalse()
                     ->info('By default, Ignition uses a nice white based them. If this is too bright for your eyes, you can use dark mode.')
                     ->end()
+                ->booleanNode('should_display_exception')
+                    ->defaultValue('%kernel.debug%')
+                    ->info('Avoid rendering Ignition, for example in production environments.')
+                    ->end()
             ->end();
 
         return $treeBuilder;
