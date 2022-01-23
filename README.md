@@ -5,7 +5,7 @@
 [![Tests](https://github.com/spatie/symfony-ignition-bundle/actions/workflows/run-tests.yml/badge.svg?branch=main)](https://github.com/spatie/symfony-ignition-bundle/actions/workflows/run-tests.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/symfony-ignition-bundle.svg?style=flat-square)](https://packagist.org/packages/spatie/symfony-ignition-bundle)
 
-Use [Ignition](https://github.com/spatie/ignition) to render beautiful exceptions in Symfony.
+Replace Symfony's default exception pages with beautiful and informative [Ignition](https://github.com/spatie/ignition) pages.
 
 ## Installation
 
@@ -19,7 +19,7 @@ Enable the bundle in `config/bundles.php`:
 ```diff
  return [
      // ...
-+    Spatie\SymfonyIgnitionBundle\IgnitionBundle::class => ['all' => true],
++    Spatie\SymfonyIgnitionBundle\IgnitionBundle::class => ['dev' => true],
  ];
 
 ```

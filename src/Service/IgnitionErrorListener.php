@@ -2,8 +2,10 @@
 
 namespace Spatie\SymfonyIgnitionBundle\Service;
 
+use ob_start, ob_get_contents, ob_end_clean;
 use Spatie\Ignition\Ignition;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 
@@ -29,16 +31,14 @@ class IgnitionErrorListener implements EventSubscriberInterface
     {
         $error = $event->getThrowable();
 
-        /**
-         * @todo Capture ignition HTML response and return that as a Symfony
-         * response, instead of using Ignition's rendering. This will be needed
-         * for the Symfony debug toolbar to show up, and for other exception
-         * listeners to be called.
-         *
-         * $response = new \Symfony\Component\HttpFoundation\Response($ignitionOutput);
-         * $event->setResponse($response);
-         */
+        // Get the output from Ignition
+        ob_start();
         $this->ignition->handleException($error);
-        exit(1);
+        $output = ob_get_contents();
+        ob_end_clean();
+
+        // Return Ignition's output as a Symfony response
+        $response = new Response($output);
+        $event->setResponse($response);
     }
 }
