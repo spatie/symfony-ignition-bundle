@@ -11,12 +11,9 @@ use Symfony\Component\HttpKernel\KernelEvents;
 
 class IgnitionErrorListener implements EventSubscriberInterface
 {
-    private $ignition;
-
-    public function __construct(Ignition $ignition)
-    {
-        $this->ignition = $ignition;
-    }
+    public function __construct(
+        private Ignition $ignition,
+    ) {}
 
     public static function getSubscribedEvents(): array
     {
