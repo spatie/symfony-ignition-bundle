@@ -21,6 +21,8 @@
     <testsuites>
         <testsuite name="Spatie Test Suite">
             <directory>tests</directory>
+            <!-- Don't run tests in dependencies of the test Symfony app -->
+            <exclude>tests/Functional/App/vendor/*</exclude>
         </testsuite>
     </testsuites>
     <coverage>
