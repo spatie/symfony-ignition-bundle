@@ -29,7 +29,8 @@ abstract class FunctionalTest extends TestCase
             [
                 'composer',
                 'install',
-                '--no-cache',
+                // '--no-cache',
+                // '--working-dir=' . self::APP_DIRECTORY,
                 '--no-interaction',
                 '--prefer-dist',
                 '--optimize-autoloader',
