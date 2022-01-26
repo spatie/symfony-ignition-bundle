@@ -8,7 +8,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "../../../"
+            "url": "../../.."
         }
     ],
     "require": {

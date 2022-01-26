@@ -17,6 +17,17 @@ abstract class FunctionalTest extends TestCase
 
     abstract public function testSymfonyworks(string $symfonyVersion): void;
 
+    /**
+     * Provide Symfony versions to test
+     */
+    public function versionProvider()
+    {
+        return [
+            'Symfony 5.4' => ['5.4.*'],
+            'Symfony 6.0' => ['6.0.*'],
+        ];
+    }
+
     protected function installSymfony(string $symfonyRequirement = '6.0.*'): void
     {
         // Create a fresh directory for the Symfony app using the template
@@ -29,7 +40,8 @@ abstract class FunctionalTest extends TestCase
             [
                 'composer',
                 'install',
-                '--no-cache',
+                // '--no-cache',
+                // '--working-dir=' . self::APP_DIRECTORY,
                 '--no-interaction',
                 '--prefer-dist',
                 '--optimize-autoloader',
