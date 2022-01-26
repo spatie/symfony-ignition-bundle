@@ -23,14 +23,13 @@
     "require": {
         "php": "^8.0",
         "spatie/ignition": "^1.0",
-        "symfony/dependency-injection": "^5.4 || ^6.0",
-        "symfony/config": "^5.4 || ^6.0",
-        "symfony/http-kernel": "^5.4 || ^6.0",
-        "symfony/event-dispatcher": "^5.4 || ^6.0",
-        "symfony/http-foundation": "^5.4 || ^6.0"
+        "symfony/dependency-injection": "^6.0",
+        "symfony/config": "^6.0",
+        "symfony/http-kernel": "^6.0",
+        "symfony/event-dispatcher": "^6.0",
+        "symfony/http-foundation": "^6.0"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^3.0",
         "phpunit/phpunit": "^9.5",
         "symfony/filesystem": "^6.0",
         "symfony/process": "^6.0",
@@ -51,7 +50,10 @@
         "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes"
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true
