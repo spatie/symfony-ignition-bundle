@@ -27,6 +27,7 @@ abstract class FunctionalTest extends TestCase
             [
                 'composer',
                 'install',
+                '--no-cache',
                 '--no-interaction',
                 '--prefer-dist',
                 '--optimize-autoloader',
