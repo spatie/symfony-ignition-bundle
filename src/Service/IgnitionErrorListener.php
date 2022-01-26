@@ -2,8 +2,8 @@
 
 namespace Spatie\SymfonyIgnitionBundle\Service;
 
-use function ob_start;
 use function ob_get_clean;
+use function ob_start;
 use Spatie\Ignition\Ignition;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,7 +14,8 @@ class IgnitionErrorListener implements EventSubscriberInterface
 {
     public function __construct(
         private Ignition $ignition,
-    ) {}
+    ) {
+    }
 
     public static function getSubscribedEvents(): array
     {

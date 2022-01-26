@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Spatie\SymfonyIgnitionBundle\Tests\Functional;
 
@@ -18,7 +20,7 @@ abstract class FunctionalTest extends TestCase
     protected function installSymfony(string $symfonyRequirement = '6.0.*'): void
     {
         // Create a fresh directory for the Symfony app using the template
-        $filesystem = new Filesystem;
+        $filesystem = new Filesystem();
         $filesystem->remove(self::APP_DIRECTORY);
         $filesystem->mirror(self::APP_TEMPLATE, self::APP_DIRECTORY);
 
@@ -43,7 +45,7 @@ abstract class FunctionalTest extends TestCase
         $httpCall = new Process(
             [
                 'php',
-                'public/index.php'
+                'public/index.php',
             ],
             self::APP_DIRECTORY
         );
