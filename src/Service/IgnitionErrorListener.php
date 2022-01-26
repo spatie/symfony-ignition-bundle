@@ -2,7 +2,8 @@
 
 namespace Spatie\SymfonyIgnitionBundle\Service;
 
-use ob_start, ob_get_contents, ob_end_clean;
+use function ob_start;
+use function ob_get_clean;
 use Spatie\Ignition\Ignition;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\Response;
@@ -31,8 +32,7 @@ class IgnitionErrorListener implements EventSubscriberInterface
         // Get the output from Ignition
         ob_start();
         $this->ignition->handleException($error);
-        $output = ob_get_contents();
-        ob_end_clean();
+        $output = ob_get_clean();
 
         // Return Ignition's output as a Symfony response
         $response = new Response($output);
