@@ -74,7 +74,7 @@ class IndexController extends AbstractController
 
 ![screenshot](https://spatie.github.io/symfony-ignition-bundle/images/ignition.png)
 
-To learn all the options that Ignition provides, including error reporting to [Flare](https://flareapp.io), head over to [the readme of spatie/ignition](https://github.com/spatie/ignition).
+To learn all the options that Ignition provides, including error reporting to [Flare](https://flareapp.io), head over to [the readme of spatie/ignition](https://github.com/spatie/ignition#usage).
 
 ## Testing
 
