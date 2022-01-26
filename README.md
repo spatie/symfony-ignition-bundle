@@ -5,7 +5,18 @@
 [![Tests](https://github.com/spatie/symfony-ignition-bundle/actions/workflows/run-tests.yml/badge.svg?branch=main)](https://github.com/spatie/symfony-ignition-bundle/actions/workflows/run-tests.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/symfony-ignition-bundle.svg?style=flat-square)](https://packagist.org/packages/spatie/symfony-ignition-bundle)
 
-Replace Symfony's default exception pages with beautiful and informative [Ignition](https://github.com/spatie/ignition) pages.
+[Ignition](https://github.com/spatie/ignition) is a beautiful and customizable error page for
+PHP applications
+
+Using this bundle, you can replace Symfony's default exception pages with Ignition.
+
+This is what how the Ignition looks like in the browser.
+
+![Screenshot of ignition](https://spatie.github.io/ignition/ignition.png)
+
+There's also a beautiful dark mode.
+
+![Screenshot of ignition in dark mode](https://spatie.github.io/ignition/ignition-dark.png)
 
 ## Support us
 
@@ -61,15 +72,13 @@ class IndexController extends AbstractController
 
 ... you'll see a beautiful error page.
 
-<img src="https://github.com/amacrobert/symfony-ignition-bundle/blob/main/doc/img/example.png" />
+![screenshot](https://spatie.github.io/symfony-ignition-bundle/ignition.png)
 
 ## Testing
 
 ```bash
 composer test
 ```
-
-
 
 ## Changelog
 
