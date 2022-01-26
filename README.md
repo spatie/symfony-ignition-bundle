@@ -44,7 +44,9 @@ ignition:
     should_display_exceptions: '%kernel.debug%'
 ```
 
-## Example
+## Usage
+
+When you now throw an exception anywhere in your app...
 
 ```php
 class IndexController extends AbstractController
@@ -56,6 +58,8 @@ class IndexController extends AbstractController
     }
 }
 ```
+
+... you'll see a beautiful error page.
 
 <img src="https://github.com/amacrobert/symfony-ignition-bundle/blob/main/doc/img/example.png" />
 
