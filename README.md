@@ -1,10 +1,61 @@
+
 # A beautiful error page for Symfony apps
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/symfony-ignition-bundle.svg?style=flat-square)](https://packagist.org/packages/spatie/symfony-ignition-bundle)
 [![Tests](https://github.com/spatie/symfony-ignition-bundle/actions/workflows/run-tests.yml/badge.svg?branch=main)](https://github.com/spatie/symfony-ignition-bundle/actions/workflows/run-tests.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/symfony-ignition-bundle.svg?style=flat-square)](https://packagist.org/packages/spatie/symfony-ignition-bundle)
 
-This is where your description should go. Try and limit it to a paragraph or two. Consider adding a small example.
+Replace Symfony's default exception pages with beautiful and informative [Ignition](https://github.com/spatie/ignition) pages.
+
+## Installation
+
+You can install the package via composer:
+
+```bash
+composer require --dev spatie/symfony-ignition-bundle
+```
+
+Enable the bundle in `config/bundles.php`:
+```diff
+ return [
+     // ...
++    Spatie\SymfonyIgnitionBundle\IgnitionBundle::class => ['dev' => true],
+ ];
+
+```
+
+## Configuration
+
+Use `bin/console debug:config ignition` to see configuration options.
+
+`config/packages/ignition.yaml`:
+```
+ignition:
+    application_path: ''
+    dark_mode: false
+    should_display_exceptions: '%kernel.debug%'
+```
+
+## Example
+
+```php
+class IndexController extends AbstractController
+{
+    #[Route('/', name: 'index')]
+    public function index(): Response
+    {
+        throw new \Exception('Hello Ignition!');
+    }
+}
+```
+
+<img src="https://github.com/amacrobert/symfony-ignition-bundle/blob/main/doc/img/example.png" />
+
+## Testing
+
+```bash
+composer test
+```
 
 ## Support us
 
@@ -13,27 +64,6 @@ This is where your description should go. Try and limit it to a paragraph or two
 We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
 
 We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
-
-## Installation
-
-You can install the package via composer:
-
-```bash
-composer require spatie/symfony-ignition-bundle
-```
-
-## Usage
-
-```php
-$skeleton = new Spatie\SymfonyIgnitionBundle();
-echo $skeleton->echoPhrase('Hello, Spatie!');
-```
-
-## Testing
-
-```bash
-composer test
-```
 
 ## Changelog
 
@@ -49,6 +79,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
+- [Andrew MacRobert](https://github.com/amacrobert)
 - [Freek Van der Herten](https://github.com/freekmurze)
 - [All Contributors](../../contributors)
 

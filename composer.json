@@ -1,5 +1,6 @@
 {
     "name": "spatie/symfony-ignition-bundle",
+    "type": "symfony-bundle",
     "description": "A beautiful error page for Symfony apps",
     "keywords": [
         "spatie",
@@ -9,18 +10,31 @@
     "license": "MIT",
     "authors": [
         {
+            "name": "Andrew MacRobert",
+            "email": "andrew.macrobert@gmail.com",
+            "role": "Developer"
+        },
+        {
             "name": "Freek Van der Herten",
             "email": "freek@spatie.be",
             "role": "Developer"
         }
     ],
     "require": {
-        "php": "^8.0"
+        "php": "^8.0",
+        "spatie/ignition": "^1.0",
+        "symfony/dependency-injection": "^5.4 || ^6.0",
+        "symfony/config": "^5.4 || ^6.0",
+        "symfony/http-kernel": "^5.4 || ^6.0",
+        "symfony/event-dispatcher": "^5.4 || ^6.0",
+        "symfony/http-foundation": "^5.4 || ^6.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.0",
-        "pestphp/pest": "^1.20",
-        "spatie/ray": "^1.28"
+        "phpunit/phpunit": "^9.5",
+        "symfony/filesystem": "^6.0",
+        "symfony/process": "^6.0",
+        "symfony/dom-crawler": "^6.0"
     },
     "autoload": {
         "psr-4": {
@@ -33,15 +47,11 @@
         }
     },
     "scripts": {
-        "test": "vendor/bin/pest",
-        "test-coverage": "vendor/bin/pest --coverage",
+        "test": "vendor/bin/phpunit",
         "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes"
     },
     "config": {
-        "sort-packages": true,
-        "allow-plugins": {
-            "pestphp/pest-plugin": true
-        }
+        "sort-packages": true
     },
     "minimum-stability": "dev",
     "prefer-stable": true
