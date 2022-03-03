@@ -17,20 +17,12 @@ class InstallWithSymfony extends FunctionalTest
      */
     public function testSymfonyWorks(string $symfonyRequirement): void
     {
-        // debug start
-        $filesystem = new Filesystem();
-        $filesystem->remove(self::APP_DIRECTORY);
-        $filesystem->mirror(self::APP_TEMPLATE, self::APP_DIRECTORY);
-        dump((new Process(['ls', '-lAh'], self::APP_DIRECTORY))->mustRun()->getOutput());
-        dump((new Process(['ls', '-lAh', '../../..'], self::APP_DIRECTORY))->mustRun()->getOutput());
-        dump((new Process(['pwd'], self::APP_DIRECTORY))->mustRun()->getOutput());
-        // debug end
-
         $this->installSymfony($symfonyRequirement);
 
         // Assert the expected version of Symfony was installed
         $getSymfonyVersion = new Process([
-            './bin/console',
+            'php',
+            'bin/console',
             '--version',
         ], self::APP_DIRECTORY);
 

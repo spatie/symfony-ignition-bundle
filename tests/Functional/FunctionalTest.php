@@ -32,7 +32,12 @@ abstract class FunctionalTest extends TestCase
     {
         // Create a fresh directory for the Symfony app using the template
         $filesystem = new Filesystem();
-        $filesystem->remove(self::APP_DIRECTORY);
+
+        // Windows was having trouble with Filesystem::remove, so rename instead
+        // $filesystem->remove(self::APP_DIRECTORY);
+        if (file_exists(self::APP_DIRECTORY)) {
+            $filesystem->rename(self::APP_DIRECTORY, self::APP_DIRECTORY . '~');
+        }
         $filesystem->mirror(self::APP_TEMPLATE, self::APP_DIRECTORY);
 
         // Install packages
@@ -40,8 +45,7 @@ abstract class FunctionalTest extends TestCase
             [
                 'composer',
                 'install',
-                // '--no-cache',
-                // '--working-dir=' . self::APP_DIRECTORY,
+                '--no-cache',
                 '--no-interaction',
                 '--prefer-dist',
                 '--optimize-autoloader',
