@@ -7,8 +7,8 @@
     "prefer-stable": false,
     "repositories": [
         {
-            "type": "vcs",
-            "url": "../../.."
+            "type": "path",
+            "url": "../../../"
         }
     ],
     "require": {
