@@ -4,7 +4,6 @@ namespace Spatie\SymfonyIgnitionBundle\Tests\Functional;
 
 use Symfony\Component\DomCrawler\Crawler;
 use Symfony\Component\Process\Process;
-use Symfony\Component\Filesystem\Filesystem;
 
 class InstallWithSymfony extends FunctionalTest
 {
