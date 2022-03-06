@@ -11,3 +11,4 @@ vendor
 .php-cs-fixer.cache
 .DS_Store
 tests/Functional/App/*
+tests/Functional/App~/*

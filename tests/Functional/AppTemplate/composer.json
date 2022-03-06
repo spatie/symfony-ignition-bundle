@@ -7,7 +7,7 @@
     "prefer-stable": false,
     "repositories": [
         {
-            "type": "vcs",
+            "type": "path",
             "url": "../../../"
         }
     ],
@@ -15,8 +15,11 @@
         "php": ">=7.2.5",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "spatie/symfony-ignition-bundle": "*",
         "symfony/flex": "^1.17|^2",
-        "spatie/symfony-ignition-bundle": "*"
+        "symfony/framework-bundle": "*",
+        "symfony/http-kernel": "*",
+        "symfony/runtime": "*"
     },
     "flex-require": {
         "symfony/browser-kit": "*",

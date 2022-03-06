@@ -4,23 +4,10 @@ namespace Spatie\SymfonyIgnitionBundle\Tests\Functional;
 
 use Symfony\Component\DomCrawler\Crawler;
 use Symfony\Component\Process\Process;
+use Symfony\Component\Filesystem\Filesystem;
 
 class InstallWithSymfony extends FunctionalTest
 {
-    /**
-     * Provide Symfony versions to test
-     *
-     * @todo Also provide PHP versions that each Symfony version supports. Will
-     *   require the test host to have Docker.
-     */
-    public function versionProvider()
-    {
-        return [
-            'Symfony 5.4' => ['5.4.*'],
-            'Symfony 6.0' => ['6.0.*'],
-        ];
-    }
-
     /**
      * Install a Symfony application. Verify its version with bin/console, then
      * fake a HTTP request to the front controller. Assert the response is an
@@ -34,7 +21,8 @@ class InstallWithSymfony extends FunctionalTest
 
         // Assert the expected version of Symfony was installed
         $getSymfonyVersion = new Process([
-            './bin/console',
+            'php',
+            'bin/console',
             '--version',
         ], self::APP_DIRECTORY);
 

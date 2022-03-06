@@ -17,11 +17,27 @@ abstract class FunctionalTest extends TestCase
 
     abstract public function testSymfonyworks(string $symfonyVersion): void;
 
+    /**
+     * Provide Symfony versions to test
+     */
+    public function versionProvider()
+    {
+        return [
+            'Symfony 5.4' => ['5.4.*'],
+            'Symfony 6.0' => ['6.0.*'],
+        ];
+    }
+
     protected function installSymfony(string $symfonyRequirement = '6.0.*'): void
     {
         // Create a fresh directory for the Symfony app using the template
         $filesystem = new Filesystem();
-        $filesystem->remove(self::APP_DIRECTORY);
+
+        // Windows was having trouble with Filesystem::remove, so rename instead
+        // $filesystem->remove(self::APP_DIRECTORY);
+        if (file_exists(self::APP_DIRECTORY)) {
+            $filesystem->rename(self::APP_DIRECTORY, self::APP_DIRECTORY . '~');
+        }
         $filesystem->mirror(self::APP_TEMPLATE, self::APP_DIRECTORY);
 
         // Install packages
