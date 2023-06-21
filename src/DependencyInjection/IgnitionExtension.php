@@ -6,6 +6,7 @@ use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
+use \Spatie\Ignition\Solutions\OpenAi\OpenAiSolutionProvider;
 
 class IgnitionExtension extends Extension
 {
@@ -27,5 +28,12 @@ class IgnitionExtension extends Extension
 
         $definition->addMethodCall('applicationPath', [$config['application_path']]);
         $definition->addMethodCall('shouldDisplayException', [$config['should_display_exception']]);
+
+        $openAiKey = $config['openai_key'];
+        if ($openAiKey !== "") {
+            $aiSolutionProvider = new OpenAiSolutionProvider($openAiKey);
+            $aiSolutionProvider->applicationType('Symfony');
+            $definition->addMethodCall('addSolutionProviders', [$aiSolutionProvider]);
+        }
     }
 }

@@ -11,7 +11,7 @@
             public="false"
         >
             <factory class="Spatie\Ignition\Ignition" method="make"/>
-            <call method="register"></call>
+            <call method="register" />
         </service>
         <service
             id="spatie_ignition.error_listener"

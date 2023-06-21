@@ -56,6 +56,8 @@ ignition:
     application_path: ''
     dark_mode: false
     should_display_exceptions: '%kernel.debug%'
+    # if you want AI solutions to your app's errors
+    openai_key: 'key-here'
 ```
 
 ## Usage
