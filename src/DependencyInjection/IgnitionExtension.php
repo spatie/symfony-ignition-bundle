@@ -2,11 +2,11 @@
 
 namespace Spatie\SymfonyIgnitionBundle\DependencyInjection;
 
+use Spatie\Ignition\Solutions\OpenAi\OpenAiSolutionProvider;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
-use \Spatie\Ignition\Solutions\OpenAi\OpenAiSolutionProvider;
 
 class IgnitionExtension extends Extension
 {
