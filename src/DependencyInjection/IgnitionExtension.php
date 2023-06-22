@@ -29,8 +29,8 @@ class IgnitionExtension extends Extension
         $definition->addMethodCall('applicationPath', [$config['application_path']]);
         $definition->addMethodCall('shouldDisplayException', [$config['should_display_exception']]);
 
-        $openAiKey = $config['openai_key'];
-        if ($openAiKey !== "") {
+        $openAiKey = $config['openai_key'] ?? null;
+        if ($openAiKey !== null && $openAiKey !== "") {
             $aiSolutionProvider = new OpenAiSolutionProvider($openAiKey);
             $aiSolutionProvider->applicationType('Symfony');
             $definition->addMethodCall('addSolutionProviders', [$aiSolutionProvider]);
