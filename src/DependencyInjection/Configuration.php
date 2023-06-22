@@ -19,7 +19,7 @@ class Configuration implements ConfigurationInterface
                     ->end()
                 ->booleanNode('dark_mode')
                     ->defaultFalse()
-                    ->info('By default, Ignition uses a nice white based them. If this is too bright for your eyes, you can use dark mode.')
+                    ->info('By default, Ignition uses a nice white based theme. If this is too bright for your eyes, you can use dark mode.')
                     ->end()
                 ->booleanNode('should_display_exception')
                     ->defaultValue('%kernel.debug%')
