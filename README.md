@@ -49,7 +49,7 @@ Use `bin/console debug:config ignition` to see configuration options.
 `config/packages/ignition.yaml`:
 ```
 ignition:
-    application_path: ''
+    application_path: '%kernel.project_dir%'
     dark_mode: false
     should_display_exceptions: '%kernel.debug%'
     # if you want AI solutions to your app's errors
