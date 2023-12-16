@@ -5,18 +5,18 @@ namespace Spatie\SymfonyIgnitionBundle\Tests\Functional;
 use Symfony\Component\DomCrawler\Crawler;
 use Symfony\Component\Process\Process;
 
-class InstallWithSymfony extends FunctionalTest
+class InstallWithSymfonyTest extends FunctionalTest
 {
     /**
      * Install a Symfony application. Verify its version with bin/console, then
-     * fake a HTTP request to the front controller. Assert the response is an
+     * fake an HTTP request to the front controller. Assert the response is an
      * Ignition error page thrown in a Symfony controller.
      *
      * @dataProvider versionProvider
      */
-    public function testSymfonyWorks(string $symfonyRequirement): void
+    public function testSymfonyWorks(string $symfonyVersion): void
     {
-        $this->installSymfony($symfonyRequirement);
+        $this->installSymfony($symfonyVersion);
 
         // Assert the expected version of Symfony was installed
         $getSymfonyVersion = new Process([
@@ -29,7 +29,7 @@ class InstallWithSymfony extends FunctionalTest
         $this->assertCommandIsSuccessful($getSymfonyVersion);
 
         $versionOutput = $getSymfonyVersion->getOutput();
-        $majorDotMinorSymfonyRequirement = implode('.', explode('.', $symfonyRequirement, -1));
+        $majorDotMinorSymfonyRequirement = implode('.', explode('.', ltrim($symfonyVersion, '^>='), -1));
         $expectedOutput = sprintf('Symfony %s', $majorDotMinorSymfonyRequirement);
         $this->assertStringContainsString($expectedOutput, $versionOutput);
 
