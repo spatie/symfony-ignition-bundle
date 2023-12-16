@@ -1,0 +1,9 @@
+version: '3'
+services:
+  ignition-bundle-test-environment:
+    container_name: ignition-bundle
+    build: .
+    image: php:8.2
+    tty: true
+    volumes:
+      - .:/var/task

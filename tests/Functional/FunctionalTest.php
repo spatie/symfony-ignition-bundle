@@ -22,13 +22,12 @@ abstract class FunctionalTest extends TestCase
      */
     public function versionProvider()
     {
-        return [
-            'Symfony 5.4' => ['5.4.*'],
-            'Symfony 6.0' => ['6.0.*'],
-        ];
+        $symfonyVersion = trim(file_get_contents(__DIR__ . '/../../symfony-version.txt'));
+
+        return $symfonyVersion;
     }
 
-    protected function installSymfony(string $symfonyRequirement = '6.0.*'): void
+    protected function installSymfony(string $symfonyVersion): void
     {
         // Create a fresh directory for the Symfony app using the template
         $filesystem = new Filesystem();
@@ -36,7 +35,7 @@ abstract class FunctionalTest extends TestCase
         // Windows was having trouble with Filesystem::remove, so rename instead
         // $filesystem->remove(self::APP_DIRECTORY);
         if (file_exists(self::APP_DIRECTORY)) {
-            $filesystem->rename(self::APP_DIRECTORY, self::APP_DIRECTORY . '~');
+            $filesystem->rename(self::APP_DIRECTORY, self::APP_DIRECTORY . '~', overwrite: true);
         }
         $filesystem->mirror(self::APP_TEMPLATE, self::APP_DIRECTORY);
 
@@ -51,7 +50,7 @@ abstract class FunctionalTest extends TestCase
                 '--optimize-autoloader',
             ],
             self::APP_DIRECTORY,
-            ['SYMFONY_REQUIRE' => $symfonyRequirement]
+            ['SYMFONY_REQUIRE' => $symfonyVersion]
         );
 
         $composerInstall->mustRun();
