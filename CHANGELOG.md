@@ -2,6 +2,20 @@
 
 All notable changes to `symfony-ignition-bundle` will be documented in this file.
 
+## 1.1.0 - 2023-12-16
+
+Add support for:
+
+- Symfony 7.0
+- PHP 8.2
+- PHP 8.3
+
+Drop support for:
+
+- PHP 8.0
+- Symfony 6.0
+- Symfony 6.2
+
 ## 0.0.3 - 2023-06-22
 
 ### What's Changed
