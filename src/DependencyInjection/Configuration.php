@@ -25,6 +25,10 @@ class Configuration implements ConfigurationInterface
                     ->defaultValue('%kernel.debug%')
                     ->info('Avoid rendering Ignition, for example in production environments.')
                     ->end()
+                ->scalarNode('openai_key')
+                    ->defaultValue('')
+                    ->info('if you want AI solutions to your app\'s errors.')
+                    ->end()
             ->end();
 
         return $treeBuilder;
