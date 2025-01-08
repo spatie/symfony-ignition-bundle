@@ -2,6 +2,30 @@
 
 All notable changes to `symfony-ignition-bundle` will be documented in this file.
 
+## 1.2.0 - 2025-01-08
+
+### What's Changed
+
+#### Features
+
+* Add openai_key as an option to the Symfony config by @mrunkel in https://github.com/spatie/symfony-ignition-bundle/pull/31
+
+#### Documentations
+
+* Fix configuration example at README.md by @diimpp in https://github.com/spatie/symfony-ignition-bundle/pull/29
+
+#### Security
+
+* Bump dependabot/fetch-metadata from 1.6.0 to 2.1.0 by @dependabot in https://github.com/spatie/symfony-ignition-bundle/pull/27
+* Bump dependabot/fetch-metadata from 2.1.0 to 2.2.0 by @dependabot in https://github.com/spatie/symfony-ignition-bundle/pull/28
+
+### New Contributors
+
+* @diimpp made their first contribution in https://github.com/spatie/symfony-ignition-bundle/pull/29
+* @mrunkel made their first contribution in https://github.com/spatie/symfony-ignition-bundle/pull/31
+
+**Full Changelog**: https://github.com/spatie/symfony-ignition-bundle/compare/1.1.0...1.2.0
+
 ## 1.1.0 - 2023-12-16
 
 Add support for:
