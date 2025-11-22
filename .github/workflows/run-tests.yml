@@ -28,7 +28,6 @@ jobs:
           - prefer-stable
         exclude:
           - { symfony: '7.0.*', php: '8.1' }
-          - { symfony: '7.0.*', php: '8.2' }
           - { symfony: '8.0.*', php: '8.1' }
           - { symfony: '8.0.*', php: '8.2' }
           - { symfony: '8.0.*', php: '8.3' }
