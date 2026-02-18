@@ -2,6 +2,26 @@
 
 All notable changes to `symfony-ignition-bundle` will be documented in this file.
 
+## 1.3.0 - 2026-02-18
+
+### What's Changed
+
+* Passthrough non-html errors with `force_html_response` bundle option override by @amacrobert in https://github.com/spatie/symfony-ignition-bundle/pull/44
+* Bump dependabot/fetch-metadata from 2.2.0 to 2.3.0 by @dependabot[bot] in https://github.com/spatie/symfony-ignition-bundle/pull/32
+* Bump dependabot/fetch-metadata from 2.3.0 to 2.4.0 by @dependabot[bot] in https://github.com/spatie/symfony-ignition-bundle/pull/33
+* Update issue template by @AlexVanderbist in https://github.com/spatie/symfony-ignition-bundle/pull/36
+* Added Symfony 8 support to all symfony/* packages. by @thecaliskan in https://github.com/spatie/symfony-ignition-bundle/pull/39
+* Bump actions/checkout from 4 to 5 by @dependabot[bot] in https://github.com/spatie/symfony-ignition-bundle/pull/35
+* Bump stefanzweifel/git-auto-commit-action from 5 to 7 by @dependabot[bot] in https://github.com/spatie/symfony-ignition-bundle/pull/37
+* Bump dependabot/fetch-metadata from 2.4.0 to 2.5.0 by @dependabot[bot] in https://github.com/spatie/symfony-ignition-bundle/pull/41
+* Bump actions/checkout from 5 to 6 by @dependabot[bot] in https://github.com/spatie/symfony-ignition-bundle/pull/40
+
+### New Contributors
+
+* @AlexVanderbist made their first contribution in https://github.com/spatie/symfony-ignition-bundle/pull/36
+
+**Full Changelog**: https://github.com/spatie/symfony-ignition-bundle/compare/1.2.0...1.3.0
+
 ## 1.2.0 - 2025-01-08
 
 ### What's Changed
