@@ -32,7 +32,7 @@ class IgnitionErrorListener implements EventSubscriberInterface
     {
         // If the request expects a non-HTML mime type and
         // force_html_response == false, fall through to Symfony's error handling.
-        if (!$this->forceHtmlResponse) {
+        if (! $this->forceHtmlResponse) {
             $preferredFormat = $event->getRequest()->getPreferredFormat('html');
             if ($preferredFormat !== 'html') {
                 return;
