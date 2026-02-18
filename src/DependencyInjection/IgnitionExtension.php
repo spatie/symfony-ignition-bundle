@@ -20,6 +20,8 @@ class IgnitionExtension extends Extension
             $configs
         );
 
+        $container->setParameter('spatie_ignition.force_html_response', $config['force_html_response']);
+
         $definition = $container->getDefinition('spatie_ignition.ignition');
 
         if (true == $config['dark_mode']) {

@@ -53,6 +53,8 @@ when@dev:
         application_path: '%kernel.project_dir%'
         dark_mode: false
         should_display_exception: '%kernel.debug%'
+        # when true, Ignition renders HTML errors even for non-HTML requests (e.g. JSON API routes)
+        force_html_response: false
         # if you want AI solutions to your app's errors
         openai_key: 'key-here'
 ```
