@@ -15,6 +15,7 @@ class IgnitionErrorListener implements EventSubscriberInterface
 {
     public function __construct(
         private Ignition $ignition,
+        private bool $forceHtmlResponse = true,
     ) {
     }
 
@@ -29,6 +30,15 @@ class IgnitionErrorListener implements EventSubscriberInterface
 
     public function onKernelException(ExceptionEvent $event)
     {
+        // If the request expects a non-HTML mime type and
+        // force_html_response == false, fall through to Symfony's error handling.
+        if (!$this->forceHtmlResponse) {
+            $preferredFormat = $event->getRequest()->getPreferredFormat('html');
+            if ($preferredFormat !== 'html') {
+                return;
+            }
+        }
+
         $error = $event->getThrowable();
 
         // Get the output from Ignition
