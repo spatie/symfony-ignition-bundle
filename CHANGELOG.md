@@ -2,6 +2,17 @@
 
 All notable changes to `symfony-ignition-bundle` will be documented in this file.
 
+## 1.3.1 - 2026-07-25
+
+### What's Changed
+
+* fix: Support Symfony 8 by @amacrobert in https://github.com/spatie/symfony-ignition-bundle/pull/49
+* Bump dependabot/fetch-metadata from 2.5.0 to 3.0.0 by @dependabot[bot] in https://github.com/spatie/symfony-ignition-bundle/pull/45
+* Bump dependabot/fetch-metadata from 3.0.0 to 3.1.0 by @dependabot[bot] in https://github.com/spatie/symfony-ignition-bundle/pull/46
+* Bump actions/checkout from 6 to 7 by @dependabot[bot] in https://github.com/spatie/symfony-ignition-bundle/pull/47
+
+**Full Changelog**: https://github.com/spatie/symfony-ignition-bundle/compare/1.3.0...1.3.1
+
 ## 1.3.0 - 2026-02-18
 
 ### What's Changed
