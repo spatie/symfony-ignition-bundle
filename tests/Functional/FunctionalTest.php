@@ -20,11 +20,11 @@ abstract class FunctionalTest extends TestCase
     /**
      * Provide Symfony versions to test
      */
-    public function versionProvider()
+    public static function versionProvider(): array
     {
         $symfonyVersion = trim(file_get_contents(__DIR__ . '/../../symfony-version.txt'));
 
-        return $symfonyVersion;
+        return ["Symfony $symfonyVersion" => [$symfonyVersion]];
     }
 
     protected function installSymfony(string $symfonyVersion): void
