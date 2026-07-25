@@ -24,8 +24,11 @@ jobs:
           - prefer-lowest
           - prefer-stable
         exclude:
+          # Symfony 8 requires PHP >= 8.4
           - { symfony: '8.0.*', php: '8.2' }
           - { symfony: '8.0.*', php: '8.3' }
+          - { symfony: '8.1.*', php: '8.2' }
+          - { symfony: '8.1.*', php: '8.3' }
 
     name: PHP ${{ matrix.php }} / Symfony ${{ matrix.symfony }} - ${{ matrix.stability }} - ${{ matrix.os }}
 
@@ -52,4 +55,4 @@ jobs:
         run: composer update --${{ matrix.stability }} --prefer-dist --no-interaction
 
       - name: Execute tests
-        run: vendor/bin/phpunit
+        run: vendor/bin/phpunit --testdox --fail-on-skipped
