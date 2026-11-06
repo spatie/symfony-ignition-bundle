@@ -39,6 +39,21 @@ abstract class FunctionalTest extends TestCase
         }
         $filesystem->mirror(self::APP_TEMPLATE, self::APP_DIRECTORY);
 
+        $composerFile = self::APP_DIRECTORY . '/composer.json';
+        $composer = json_decode(file_get_contents($composerFile), flags: JSON_THROW_ON_ERROR);
+
+        foreach (['require', 'flex-require'] as $section) {
+            foreach ($composer->{$section} as $package => $constraint) {
+                if (str_starts_with($package, 'symfony/')) {
+                    if ($constraint === '*') {
+                        $composer->{$section}->{$package} = $symfonyVersion;
+                    }
+                }
+            }
+        }
+
+        file_put_contents($composerFile, json_encode($composer, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR));
+
         // Install packages
         $composerInstall = new Process(
             [
